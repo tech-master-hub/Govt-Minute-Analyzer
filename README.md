@@ -2,7 +2,7 @@
 
 A comprehensive MERN stack application that transforms scanned local government meeting minutes into citizen-friendly visualizations. Extract budget allocations, action items, and deadlines from PDF documents and present them in an accessible "Citizen Card" format.
 
-## ðŸ›ï¸ Overview
+## Overview
 
 The Government Minutes Explainer addresses the critical need for transparency in local governance by making complex government documents accessible to citizens. Upload scanned meeting minutes in PDF format, and the system will automatically extract key information using OCR and AI, then present it in a clean, print-ready format that anyone can understand.
 
@@ -13,7 +13,7 @@ The Government Minutes Explainer addresses the critical need for transparency in
 - **Bilingual support**: Tamil and English interface and content support
 - **Mobile-first design**: Responsive across all devices
 
-## âœ¨ Features
+## Features
 
 ### Core Functionality
 - **Secure PDF Upload**: Drag & drop interface with file validation (50MB limit)
@@ -31,7 +31,7 @@ The Government Minutes Explainer addresses the critical need for transparency in
 - **Department Icons**: Visual indicators for different government departments
 - **Evidence References**: Page numbers and text snippets for transparency
 
-## ðŸ› ï¸ Technology Stack
+## Technology Stack
 
 ### Backend Infrastructure
 - **Runtime**: Node.js 18+ with TypeScript
@@ -61,7 +61,7 @@ The Government Minutes Explainer addresses the critical need for transparency in
 - **Build Process**: Automated frontend/backend building
 - **Environment**: dotenv for configuration management
 
-## ðŸ“ Detailed Project Structure
+## Detailed Project Structure
 
 ```
 gov-minutes-explainer/
@@ -120,7 +120,7 @@ gov-minutes-explainer/
 â”‚   â””â”€â”€ ðŸ“ postcss.config.js       # PostCSS configuration
 ```
 
-## ðŸš€ Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 - **Node.js**: Version 18 or higher
@@ -192,8 +192,8 @@ npm run dev
 ```
 
 This starts both servers concurrently:
-- ðŸ”§ Backend API: http://localhost:4000
-- ðŸŽ¨ Frontend App: http://localhost:5173
+-  Backend API: http://localhost:4000
+-  Frontend App: http://localhost:5173
 
 ## ðŸ“Š Data Processing Pipeline
 
@@ -230,7 +230,7 @@ This starts both servers concurrently:
 - Department icons and status indicators
 - Public sharing link generation
 
-## ðŸ“‹ API Reference
+## API Reference
 
 ### Authentication
 Most endpoints require the `upload-secret` header for security:
@@ -369,7 +369,7 @@ Response:
 }
 ```
 
-## ðŸ—ƒï¸ Database Schema
+## Database Schema
 
 ### Extract Document Structure
 
@@ -449,7 +449,7 @@ interface ExtractDoc {
 }
 ```
 
-## ðŸŽ¨ Frontend Components
+## Frontend Components
 
 ### UploadBox Component
 ```typescript
@@ -601,7 +601,7 @@ BUCKET_ENDPOINT=https://your-production-bucket.com
 MONGODB_URI=mongodb+srv://prod-user:password@cluster.mongodb.net/
 ```
 
-## ðŸš¢ Deployment Guide
+## Deployment Guide
 
 ### Backend Deployment
 
@@ -708,7 +708,7 @@ VITE_PUBLIC_BASE_URL=https://your-frontend-domain.com
 - S3 bucket access policies
 - Regular security updates
 
-## ðŸ§ª Testing
+## Testing
 
 ### Backend Testing
 ```bash
@@ -775,7 +775,7 @@ npm run test:visual
 - [ ] Copy to clipboard functionality works
 - [ ] Social sharing integration works
 
-## ðŸ› Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -847,7 +847,7 @@ brew install poppler
 - Monitoring and alerting setup
 - Automated backup strategies
 
-## ðŸ“ˆ Monitoring and Analytics
+## Monitoring and Analytics
 
 ### Application Monitoring
 ```javascript
@@ -890,7 +890,7 @@ curl http://localhost:4000/api/health/db
 curl http://localhost:4000/api/health/storage
 ```
 
-## ðŸ¤ Contributing
+## Contributing
 
 ### Development Setup
 1. Fork the repository on GitHub
@@ -927,7 +927,7 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 4. Get code review from maintainers
 5. Squash commits before merging
 
-## ðŸ“„ License
+##  License
 
 MIT License
 
@@ -951,7 +951,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## ðŸ“ž Support and Community
+## Support and Community
 
 ### Getting Help
 - **GitHub Issues**: Report bugs and request features
