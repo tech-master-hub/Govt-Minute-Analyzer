@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Minutes Explainer - சபை நிர்णयங்கள்</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="header-title">
+                        <span class="icon">📋</span>
+                        Government Minutes Explainer
+                        <span class="header-subtitle">அரசு சபை நிர்णயங்கள்</span>
+                    </h1>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Home Page -->
+            <div id="home-page" class="page active">
+                <div class="container">
+                    <div class="intro-section">
+                        <h2>Upload Meeting Minutes / சபை நிர्णयங்களை अपลोड் करें</h2>
+                        <p>Upload scanned PDF documents to extract budget allocations, action items, and deadlines in a citizen-friendly format.</p>
+                        <p class="tamil-hint">PDF கோப்புகளை அップ்லோட் செய்து பட்ஜெட் ஒதுக்கீடுகள், செயல் திட்டங்கள் மற்றும் கால வரம்புகளை எளிய வடிவத்தில் பார்க்கவும்.</p>
+                    </div>
+
+                    <!-- Upload Box -->
+                    <div class="upload-section">
+                        <div class="upload-box" id="upload-box">
+                            <div class="upload-content">
+                                <div class="upload-icon">📄</div>
+                                <h3>Drop PDF files here or click to browse</h3>
+                                <p>PDF கோப்புகளை இங்கே இழுத்து விடுங்கள் அல்லது கிளிக் செய்து தேர்ந்தெடுக்கவும்</p>
+                                <div class="upload-requirements">
+                                    <span class="requirement">✓ PDF files only</span>
+                                    <span class="requirement">✓ Max 50MB</span>
+                                    <span class="requirement">✓ Tamil/English supported</span>
+                                </div>
+                                <input type="file" id="file-input" accept=".pdf" style="display: none;">
+                            </div>
+                        </div>
+
+                        <!-- Demo Button -->
+                        <div class="demo-section">
+                            <button class="btn btn--secondary" id="demo-btn">
+                                <span class="icon">🎯</span>
+                                View Demo with Sample Data / नमूना डेटा देखें
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Processing Steps -->
+                    <div class="processing-section" id="processing-section" style="display: none;">
+                        <div class="progress-steps">
+                            <div class="step" data-step="1">
+                                <div class="step-icon">📤</div>
+                                <div class="step-content">
+                                    <h4>Upload</h4>
+                                    <p>File uploaded successfully</p>
+                                </div>
+                            </div>
+                            <div class="step" data-step="2">
+                                <div class="step-icon">👁️</div>
+                                <div class="step-content">
+                                    <h4>OCR Processing</h4>
+                                    <p>Extracting text from images</p>
+                                </div>
+                            </div>
+                            <div class="step" data-step="3">
+                                <div class="step-icon">🧠</div>
+                                <div class="step-content">
+                                    <h4>AI Analysis</h4>
+                                    <p>Analyzing budget & action items</p>
+                                </div>
+                            </div>
+                            <div class="step" data-step="4">
+                                <div class="step-icon">✅</div>
+                                <div class="step-content">
+                                    <h4>Ready</h4>
+                                    <p>Citizen card generated</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Page -->
+            <div id="results-page" class="page" style="display: none;">
+                <div class="container">
+                    <!-- Action Bar -->
+                    <div class="action-bar">
+                        <button class="btn btn--outline" id="back-btn">
+                            <span class="icon">←</span> Back to Upload
+                        </button>
+                        <div class="action-buttons">
+                            <button class="btn btn--secondary" id="print-btn">
+                                <span class="icon">🖨️</span> Print
+                            </button>
+                            <button class="btn btn--primary" id="share-btn">
+                                <span class="icon">🔗</span> Share Link
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Citizen Card -->
+                    <div class="citizen-card" id="citizen-card">
+                        <!-- Card content will be generated by JavaScript -->
+                    </div>
+
+                    <!-- Share Modal -->
+                    <div class="modal hidden" id="share-modal">
+                        <div class="modal-backdrop"></div>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Share Citizen Card</h3>
+                                <button class="modal-close" id="modal-close">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="share-options">
+                                    <div class="share-link-section">
+                                        <label class="form-label">Shareable Link</label>
+                                        <div class="share-link-input">
+                                            <input type="text" class="form-control" id="share-url" readonly>
+                                            <button class="btn btn--primary" id="copy-btn">Copy</button>
+                                        </div>
+                                    </div>
+                                    <div class="qr-section">
+                                        <label class="form-label">QR Code for Mobile</label>
+                                        <div class="qr-code" id="qr-code"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shared View Page -->
+            <div id="shared-page" class="page" style="display: none;">
+                <div class="container">
+                    <div class="shared-header">
+                        <h2>Public Citizen Card View</h2>
+                        <p>This is a read-only view of extracted meeting minutes</p>
+                        <button class="btn btn--secondary" id="print-shared-btn">
+                            <span class="icon">🖨️</span> Print Card
+                        </button>
+                    </div>
+                    <div class="citizen-card" id="shared-citizen-card">
+                        <!-- Shared card content will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Government Minutes Explainer. Built for transparent governance.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Processing your document...</h3>
+            <p>This may take a few moments</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

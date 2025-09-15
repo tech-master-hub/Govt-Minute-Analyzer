@@ -1,0 +1,22 @@
+{
+  "name": "gov-minutes-explainer",
+  "version": "1.0.0",
+  "description": "Government Minutes Explainer - Extract and visualize local-body meeting minutes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "build": "npm run backend:build && npm run frontend:build",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:build": "cd backend && npm run build",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "lint:fix": "cd backend && npm run lint:fix && cd ../frontend && npm run lint:fix"
+  },
+  "keywords": ["government", "transparency", "ocr", "mern", "civic-tech"],
+  "author": "Gov Minutes Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,28 @@
+PORT=4000
+NODE_ENV=development
+
+# MongoDB
+MONGODB_URI=mongodb://localhost:27017/gov-minutes
+
+# OpenAI
+OPENAI_API_KEY=sk-your-openai-api-key
+
+# S3 Compatible Storage (Cloudflare R2 / AWS S3)
+BUCKET_ENDPOINT=https://your-bucket-endpoint.com
+BUCKET_ACCESS_KEY=your-access-key
+BUCKET_SECRET_KEY=your-secret-key
+BUCKET_NAME=gov-minutes
+BUCKET_REGION=auto
+
+# Security
+UPLOAD_SECRET=some-strong-secret-string
+
+# OCR Configuration
+OCR_LANGS=tam+eng
+PAGE_LIMIT=15
+
+# Frontend URL for CORS
+FRONTEND_URL=http://localhost:5173
+
+# Public base URL for share links
+PUBLIC_BASE_URL=http://localhost:5173
